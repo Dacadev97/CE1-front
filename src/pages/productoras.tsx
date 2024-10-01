@@ -164,6 +164,20 @@ export default function Productoras() {
             />
           </div>
           <div>
+            <input
+              type="text"
+              placeholder="Slogan"
+              value={nuevaProductora.slogan}
+              onChange={(e) =>
+                setNuevaProductora({
+                  ...nuevaProductora,
+                  nombre: e.target.value,
+                })
+              }
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+          <div>
             <button
               onClick={crearProductora}
               className="bg-blue-500 text-white px-4 py-2 rounded"
@@ -221,6 +235,21 @@ export default function Productoras() {
                   className="w-full p-2 border border-gray-300 rounded"
                 />
               </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Slogan"
+                  value={editandoProductora.slogan}
+                  onChange={(e) =>
+                    setEditandoProductora({
+                      ...editandoProductora,
+                      slogan: e.target.value,
+                    })
+                  }
+                  className="w-full p-2 border border-gray-300 rounded"
+                />
+              </div>
+
               <div className="flex space-x-2">
                 <button
                   onClick={() => editarProductora(editandoProductora)}
@@ -237,17 +266,20 @@ export default function Productoras() {
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-12 gap-4 items-center">
-              <div className="col-span-4">
+            <div className="flex flex-wrap items-center gap-4">
+              <div className="flex-1 min-w-0">
                 <p>{productora.nombre}</p>
               </div>
-              <div className="col-span-4">
+              <div className="flex-1 min-w-0">
                 <p>{productora.descripcion}</p>
               </div>
-              <div className="col-span-2">
+              <div className="flex-1 min-w-0">
                 <p>{productora.estado ? "Activo" : "Inactivo"}</p>
               </div>
-              <div className="col-span-2 flex space-x-2">
+              <div className="flex-1 min-w-0">
+                <p>{productora.slogan}</p>
+              </div>
+              <div className="flex space-x-2">
                 <IconButton
                   color="primary"
                   onClick={() => setEditandoProductora(productora)}
