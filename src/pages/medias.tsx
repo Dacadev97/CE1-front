@@ -29,6 +29,14 @@ interface Media {
 export default function Medias() {
   const [medias, setMedias] = useState<Media[]>([]);
   const [generos, setGeneros] = useState<{ id: number; nombre: string }[]>([]);
+  const [directores, setDirectores] = useState<
+    { id: number; nombres: string }[]
+  >([]);
+  const [productoras, setProductoras] = useState<
+    { id: number; nombre: string }[]
+  >([]);
+  const [tipos, setTipos] = useState<{ id: number; nombre: string }[]>([]);
+
   const [nuevaMedia, setNuevaMedia] = useState({
     titulo: "",
     sinopsis: "",
@@ -48,6 +56,24 @@ export default function Medias() {
     fetch(API_ROUTES.GENEROS)
       .then((response) => response.json())
       .then((data) => setGeneros(data));
+  }, []);
+
+  useEffect(() => {
+    fetch(API_ROUTES.DIRECTORES)
+      .then((response) => response.json())
+      .then((data) => setDirectores(data));
+  }, []);
+
+  useEffect(() => {
+    fetch(API_ROUTES.PRODUCTORAS)
+      .then((response) => response.json())
+      .then((data) => setProductoras(data));
+  }, []);
+
+  useEffect(() => {
+    fetch(API_ROUTES.TIPOS)
+      .then((response) => response.json())
+      .then((data) => setTipos(data));
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -234,6 +260,57 @@ export default function Medias() {
               {generos.map((genero) => (
                 <option key={genero.id} value={genero.id}>
                   {genero.nombre}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div>
+          <label className="flex items-center">
+            Director:
+            <select
+              name="director_id"
+              value={nuevaMedia.director_id}
+              onChange={handleInputChange}
+            >
+              <option value="">Seleccione un director</option>
+              {directores.map((director) => (
+                <option key={director.id} value={director.id}>
+                  {director.nombres}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div>
+          <label className="flex items-center">
+            Productora:
+            <select
+              name="productora_id"
+              value={nuevaMedia.productora_id}
+              onChange={handleInputChange}
+            >
+              <option value="">Seleccione una productora</option>
+              {productoras.map((productora) => (
+                <option key={productora.id} value={productora.id}>
+                  {productora.nombre}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div>
+          <label className="flex items-center">
+            Tipo:
+            <select
+              name="tipo_id"
+              value={nuevaMedia.tipo_id}
+              onChange={handleInputChange}
+            >
+              <option value="">Seleccione un tipo</option>
+              {tipos.map((tipo) => (
+                <option key={tipo.id} value={tipo.id}>
+                  {tipo.nombre}
                 </option>
               ))}
             </select>
