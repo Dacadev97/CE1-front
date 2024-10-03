@@ -5,6 +5,7 @@ const API_ROUTES = {
   DIRECTORES: `${API_BASE_URL}/directores`,
   PRODUCTORAS: `${API_BASE_URL}/productoras`,
   TIPOS: `${API_BASE_URL}/tipos`,
+  MEDIAS: `${API_BASE_URL}/medias`,
 };
 
 export default API_ROUTES;
