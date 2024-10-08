@@ -194,138 +194,138 @@ export default function Medias() {
               className="w-full p-2 border border-gray-300 rounded"
             />
           </div>
-          <div></div>
-          <input
-            type="text"
-            placeholder="Sinopsis"
-            value={nuevaMedia.sinopsis}
-            onChange={(e) =>
-              setNuevaMedia({
-                ...nuevaMedia,
-                sinopsis: e.target.value,
-              })
-            }
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="URL Película"
-            value={nuevaMedia.url_pelicula}
-            onChange={(e) =>
-              setNuevaMedia({
-                ...nuevaMedia,
-                url_pelicula: e.target.value,
-              })
-            }
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Imagen Portada"
-            value={nuevaMedia.imagen_portada}
-            onChange={(e) =>
-              setNuevaMedia({
-                ...nuevaMedia,
-                imagen_portada: e.target.value,
-              })
-            }
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div>
-          <label className="flex items-center">
-            Año de estreno:
-            <DatePicker
-              selected={setYear(new Date(), nuevaMedia.año_estreno)}
-              onChange={handleYearChange}
-              showYearPicker
-              dateFormat="yyyy"
+          <div>
+            <input
+              type="text"
+              placeholder="Sinopsis"
+              value={nuevaMedia.sinopsis}
+              onChange={(e) =>
+                setNuevaMedia({
+                  ...nuevaMedia,
+                  sinopsis: e.target.value,
+                })
+              }
               className="w-full p-2 border border-gray-300 rounded"
             />
-          </label>
-        </div>
-        <div>
-          <label className="flex items-center">
-            Género:
-            <select
-              name="genero_id"
-              value={nuevaMedia.genero_id}
-              onChange={handleInputChange}
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="URL Película"
+              value={nuevaMedia.url_pelicula}
+              onChange={(e) =>
+                setNuevaMedia({
+                  ...nuevaMedia,
+                  url_pelicula: e.target.value,
+                })
+              }
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Imagen Portada"
+              value={nuevaMedia.imagen_portada}
+              onChange={(e) =>
+                setNuevaMedia({
+                  ...nuevaMedia,
+                  imagen_portada: e.target.value,
+                })
+              }
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+          <div>
+            <label className="flex items-center">
+              Año de estreno:
+              <DatePicker
+                selected={setYear(new Date(), nuevaMedia.año_estreno)}
+                onChange={handleYearChange}
+                showYearPicker
+                dateFormat="yyyy"
+                className="w-full p-2 border border-gray-300 rounded"
+              />
+            </label>
+          </div>
+          <div>
+            <label className="flex items-center">
+              Género:
+              <select
+                name="genero_id"
+                value={nuevaMedia.genero_id}
+                onChange={handleInputChange}
+              >
+                <option value="">Seleccione un género</option>
+                {generos.map((genero) => (
+                  <option key={genero.id} value={genero.id}>
+                    {genero.nombre}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <div>
+            <label className="flex items-center">
+              Director:
+              <select
+                name="director_id"
+                value={nuevaMedia.director_id}
+                onChange={handleInputChange}
+              >
+                <option value="">Seleccione un director</option>
+                {directores.map((director) => (
+                  <option key={director.id} value={director.id}>
+                    {director.nombres}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <div>
+            <label className="flex items-center">
+              Productora:
+              <select
+                name="productora_id"
+                value={nuevaMedia.productora_id}
+                onChange={handleInputChange}
+              >
+                <option value="">Seleccione una productora</option>
+                {productoras.map((productora) => (
+                  <option key={productora.id} value={productora.id}>
+                    {productora.nombre}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <div>
+            <label className="flex items-center">
+              Tipo:
+              <select
+                name="tipo_id"
+                value={nuevaMedia.tipo_id}
+                onChange={handleInputChange}
+              >
+                <option value="">Seleccione un tipo</option>
+                {tipos.map((tipo) => (
+                  <option key={tipo.id} value={tipo.id}>
+                    {tipo.nombre}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <div>
+            <button
+              onClick={crearMedia}
+              className="bg-blue-500 text-white px-4 py-2 rounded"
             >
-              <option value="">Seleccione un género</option>
-              {generos.map((genero) => (
-                <option key={genero.id} value={genero.id}>
-                  {genero.nombre}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-        <div>
-          <label className="flex items-center">
-            Director:
-            <select
-              name="director_id"
-              value={nuevaMedia.director_id}
-              onChange={handleInputChange}
-            >
-              <option value="">Seleccione un director</option>
-              {directores.map((director) => (
-                <option key={director.id} value={director.id}>
-                  {director.nombres}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-        <div>
-          <label className="flex items-center">
-            Productora:
-            <select
-              name="productora_id"
-              value={nuevaMedia.productora_id}
-              onChange={handleInputChange}
-            >
-              <option value="">Seleccione una productora</option>
-              {productoras.map((productora) => (
-                <option key={productora.id} value={productora.id}>
-                  {productora.nombre}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-        <div>
-          <label className="flex items-center">
-            Tipo:
-            <select
-              name="tipo_id"
-              value={nuevaMedia.tipo_id}
-              onChange={handleInputChange}
-            >
-              <option value="">Seleccione un tipo</option>
-              {tipos.map((tipo) => (
-                <option key={tipo.id} value={tipo.id}>
-                  {tipo.nombre}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-        <div>
-          <button
-            onClick={crearMedia}
-            className="bg-blue-500 text-white px-4 py-2 rounded"
-          >
-            Crear
-          </button>
+              Crear
+            </button>
+          </div>
         </div>
       </div>
-
       {medias.map((media) => (
         <div key={media.id} className="mb-4 p-4 bg-white shadow rounded">
           {editandoMedia?.id === media.id ? (
@@ -375,8 +375,8 @@ export default function Medias() {
               <div>
                 <input
                   type="text"
-                  placeholder="URL Película"
-                  value={editandoMedia.url_pelicula}
+                  placeholder="Imagen Portada"
+                  value={editandoMedia.imagen_portada}
                   onChange={(e) =>
                     setEditandoMedia({
                       ...editandoMedia,
@@ -386,6 +386,117 @@ export default function Medias() {
                   className="w-full p-2 border border-gray-300 rounded"
                 />
               </div>
+              <div>
+                <label className="flex items-center">
+                  Año de estreno:
+                  <DatePicker
+                    selected={setYear(
+                      new Date(),
+                      editandoMedia?.año_estreno || nuevaMedia.año_estreno
+                    )}
+                    onChange={(date) => {
+                      if (date) {
+                        setEditandoMedia({
+                          ...editandoMedia,
+                          año_estreno: date.getFullYear(),
+                        } as Media);
+                      }
+                    }}
+                    showYearPicker
+                    dateFormat="yyyy"
+                    className="w-full p-2 border border-gray-300 rounded"
+                  />
+                </label>
+              </div>
+              <div>
+                <label className="flex items-center">
+                  Género:
+                  <select
+                    name="genero_id"
+                    value={editandoMedia.genero_id}
+                    onChange={(e) =>
+                      setEditandoMedia({
+                        ...editandoMedia,
+                        genero_id: Number(e.target.value),
+                      })
+                    }
+                  >
+                    <option value="">Seleccione un género</option>
+                    {generos.map((genero) => (
+                      <option key={genero.id} value={genero.id}>
+                        {genero.nombre}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+              <div>
+                <label className="flex items-center">
+                  Director:
+                  <select
+                    name="director_id"
+                    value={editandoMedia.director_id}
+                    onChange={(e) =>
+                      setEditandoMedia({
+                        ...editandoMedia,
+                        director_id: Number(e.target.value),
+                      })
+                    }
+                  >
+                    <option value="">Seleccione un director</option>
+                    {directores.map((director) => (
+                      <option key={director.id} value={director.id}>
+                        {director.nombres}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+              <div>
+                <label className="flex items-center">
+                  Productora:
+                  <select
+                    name="productora_id"
+                    value={editandoMedia.productora_id}
+                    onChange={(e) =>
+                      setEditandoMedia({
+                        ...editandoMedia,
+                        productora_id: Number(e.target.value),
+                      })
+                    }
+                  >
+                    <option value="">Seleccione una productora</option>
+                    {productoras.map((productora) => (
+                      <option key={productora.id} value={productora.id}>
+                        {productora.nombre}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+              <div>
+                <label className="flex items-center">
+                  Tipo:
+                  <select
+                    name="tipo_id"
+                    value={editandoMedia.tipo_id}
+                    onChange={(e) =>
+                      setEditandoMedia({
+                        ...editandoMedia,
+                        tipo_id: Number(e.target.value),
+                      })
+                    }
+                  >
+                    <option value="">Seleccione un tipo</option>
+                    {tipos.map((tipo) => (
+                      <option key={tipo.id} value={tipo.id}>
+                        {tipo.nombre}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+
               <div className="flex space-x-2">
                 <button
                   onClick={() => editarMedia(editandoMedia)}
@@ -402,15 +513,56 @@ export default function Medias() {
               </div>
             </div>
           ) : (
-            <div className="flex flex-wrap items-center gap-4">
-              <div className="flex-1 min-w-0">
-                <p>{media.titulo}</p>
+            <div className="flex flex-col p-4 border border-gray-300 rounded shadow-md">
+              <div className="mb-2">
+                <strong>Título:</strong> {media.titulo}
               </div>
-              <div className="flex-1 min-w-0">
-                <p>{media.sinopsis}</p>
+              <div className="mb-2">
+                <strong>Sinopsis:</strong> {media.sinopsis}
+              </div>
+              <div className="mb-2">
+                <strong>URL Película:</strong> {media.url_pelicula}
+              </div>
+              <div className="mb-2">
+                <strong>Imagen Portada:</strong>
+                <img
+                  src={media.imagen_portada}
+                  alt={media.titulo}
+                  className="w-full h-auto mt-2"
+                />
+              </div>
+              <div className="mb-2">
+                <strong>Año de estreno:</strong> {media.año_estreno}
+              </div>
+              <div className="mb-2">
+                <strong>Género:</strong>{" "}
+                {
+                  generos.find((genero) => genero.id === media.genero_id)
+                    ?.nombre
+                }
+              </div>
+              <div className="mb-2">
+                <strong>Director:</strong>{" "}
+                {
+                  directores.find(
+                    (director) => director.id === media.director_id
+                  )?.nombres
+                }
+              </div>
+              <div className="mb-2">
+                <strong>Productora:</strong>{" "}
+                {
+                  productoras.find(
+                    (productora) => productora.id === media.productora_id
+                  )?.nombre
+                }
+              </div>
+              <div className="mb-2">
+                <strong>Tipo:</strong>{" "}
+                {tipos.find((tipo) => tipo.id === media.tipo_id)?.nombre}
               </div>
 
-              <div className="flex space-x-2">
+              <div className="flex space-x-2 mt-4">
                 <IconButton
                   color="primary"
                   onClick={() => setEditandoMedia(media)}
