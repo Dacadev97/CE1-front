@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://api-movies-v7qb.onrender.com";
 
 const API_ROUTES = {
   GENEROS: `${API_BASE_URL}/generos`,
